@@ -1,0 +1,14 @@
+<%= turbo_stream_from "messages" %>
+<div class="h-96 overflow-y-scroll text-textColorMain" 
+    data-controller="chat" 
+    data-chat-current-user-id-value="<%= current_user.id %>">
+  <div id="messages">
+    <% @messages.each do |message| %>
+      <%= render partial: "messages/message", 
+      locals: { 
+        message: message, 
+        display_controls: message.user == current_user
+        } %>
+    <% end %>
+  </div>
+</div>

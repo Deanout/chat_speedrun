@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    --themeColorMain:#1aa8db;
+    --themeColorSecondary:#d23838;
+}
+
+* {
+    background-color: #04011f;
+    color: #eee
+}

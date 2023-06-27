@@ -1,0 +1,23 @@
+<%= form_with(
+    model: message, 
+    id: "message_form",
+    method: :post,
+    data: {
+        controller: "reset-form",
+        action: "turbo:submit-end->reset-form#clearInput"
+    },
+    class: "p-3 border-t border-borderColor1 flex items-center") do |form| %>
+  <%= form.text_field :body, 
+  id: "chat-input", 
+  class: "flex-grow p-3 rounded-md border border-borderColor1", 
+  data: {
+    reset_form_target: "input"
+  },
+  placeholder: "Type a message..." %>
+  <%= form.button class: "ml-2 rounded-full bg-themeColorMain text-white w-10 h-10 flex justify-center items-center" do %>
+    <!-- Paper airplane icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+    </svg>
+  <% end %>
+<% end %>

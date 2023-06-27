@@ -1,0 +1,24 @@
+<%# message_1 %>
+<%= turbo_frame_tag dom_id(message) do %>
+  <div class="message" data-user-id="<%= message.user.id %>">
+    <div class="message__header flex justify-between text-textColorMain">
+      <div>
+        <div class="message__author">
+          <%= message.user.username %>
+        </div>
+        <div class="message__timestamp">
+          <%= message.created_at.strftime("%H:%M:%S") %>
+        </div>
+      </div>
+      <%# message_1_controls %>
+      <%= turbo_frame_tag [dom_id(message), "controls"] do %>
+        <% if display_controls %>
+          <%= render partial: "messages/controls", locals: { message: message } %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="message__body">
+      <%= message.body %>
+    </div>
+  </div>
+<% end %>
